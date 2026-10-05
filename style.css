@@ -1,0 +1,436 @@
+/* =========                        hidden
+                    >
+
+                    <img id="galleryPreview09" alt="">
+                </div>
+
+
+                <!-- 10 -->
+                <div class="gallery-item media-upload">
+                    <label for="gallery10">
+                        <span class="plus">+</span>
+                        <span>AJOUTER UNE IMAGE</span>
+                    </label>
+
+                    <input
+                        type="file"
+                        id="gallery10"
+                        accept="image/*"
+                        hidden
+                    >
+
+                    <img id="galleryPreview10" alt="">
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SOUTIEN -->
+    <section class="support section">
+        <div class="container">
+
+            <p class="eyebrow">SOUTENIR LE PROJET</p>
+
+            <h2>Suivre l'évolution</h2>
+
+            <p>
+                Le projet évoluera progressivement avec de nouvelles
+                créations et du contenu exclusif.
+            </p>
+
+        </div>
+    </section>
+
+</main>
+
+
+<footer>
+    <div class="container">
+        <p>ART PROJECT — 2026</p>
+    </div>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>==================== */
+/* BASE */
+/* ============================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f1;
+    color: #171717;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 18px 6%;
+    background: rgba(244, 244, 241, 0.78);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.header-inner {
+    width: min(1200px, 100%);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+}
+
+nav a {
+    font-size: 0.85rem;
+    color: #666;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #111;
+}
+
+
+/* =========================
+   GENERAL
+========================= */
+
+.container {
+    width: min(1100px, 88%);
+    margin: auto;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.eyebrow {
+    color: #777;
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: clamp(2.3rem, 7vw, 5rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+p {
+    color: #666;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 90vh;
+    width: min(1200px, 88%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 70px 0;
+}
+
+.hero-text {
+    max-width: 550px;
+    margin: 25px 0 30px;
+    font-size: 1.05rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 13px 22px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.55);
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+
+/* =========================
+   CADRES MÉDIAS
+========================= */
+
+.media-upload {
+    position: relative;
+    overflow: hidden;
+}
+
+.media-upload label {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #777;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.media-upload .plus {
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 200;
+    margin-bottom: 12px;
+    color: #555;
+}
+
+.media-upload.has-media label {
+    display: none;
+}
+
+.media-upload img,
+.media-upload video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* =========================
+   IMAGE PRINCIPALE
+========================= */
+
+.image-upload {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    max-width: 500px;
+    justify-self: center;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 24px;
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255, 255, 255, 0.95),
+            transparent 45%
+        ),
+        rgba(255, 255, 255, 0.48);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.10);
+}
+
+.image-upload img {
+    position: absolute;
+    inset: 0;
+}
+
+
+/* =========================
+   CREATION / VIDEO
+========================= */
+
+.video-upload {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.9),
+            transparent 45%
+        ),
+        rgba(255, 255, 255, 0.45);
+}
+
+.video-upload video {
+    position: absolute;
+    inset: 0;
+}
+
+
+/* =========================
+   PROJET
+========================= */
+
+.project-card {
+    padding: 55px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+.project-card h2 {
+    margin-bottom: 25px;
+}
+
+.project-card p {
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   GALERIE
+========================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.gallery-item {
+    min-width: 0;
+    aspect-ratio: 3 / 4;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255, 255, 255, 0.95),
+            transparent 45%
+        ),
+        rgba(255, 255, 255, 0.45);
+}
+
+.gallery-item img {
+    position: absolute;
+    inset: 0;
+}
+
+.gallery-item label {
+    color: #777;
+}
+
+
+/* =========================
+   SUPPORT
+========================= */
+
+.support {
+    text-align: center;
+    padding: 120px 8%;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.9),
+            transparent 45%
+        );
+}
+
+.support h2 {
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 35px 6%;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.75rem;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .site-header {
+        padding: 16px 5%;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 0.72rem;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 60px 0;
+        gap: 45px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .project-card {
+        padding: 30px 22px;
+    }
+
+    .support {
+        padding: 90px 8%;
+    }
+}
