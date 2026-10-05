@@ -1,4 +1,4 @@
-function setupUpload(inputId, previewId, isVideo = false) {
+function setupUpload(inputId, previewId, filePath = null, isVideo = false) {
     const input = document.getElementById(inputId);
     const preview = document.getElementById(previewId);
 
@@ -13,12 +13,76 @@ function setupUpload(inputId, previewId, isVideo = false) {
 
     const frame = input.closest(".media-upload");
 
+    /*
+     * =========================
+     * CHARGEMENT DU CONTENU PERMANENT
+     * =========================
+     */
+
+    if (filePath) {
+
+        if (isVideo) {
+
+            preview.src = filePath;
+            preview.controls = true;
+            preview.playsInline = true;
+            preview.muted = true;
+            preview.hidden = false;
+            preview.style.display = "block";
+
+            preview.onloadeddata = function () {
+
+                if (frame) {
+                    frame.classList.add("has-media");
+                }
+
+            };
+
+            preview.onerror = function () {
+
+                preview.hidden = true;
+                preview.style.display = "none";
+
+            };
+
+        } else {
+
+            preview.src = filePath;
+            preview.hidden = false;
+            preview.style.display = "block";
+
+            preview.onload = function () {
+
+                if (frame) {
+                    frame.classList.add("has-media");
+                }
+
+            };
+
+            preview.onerror = function () {
+
+                preview.removeAttribute("src");
+                preview.style.display = "none";
+
+            };
+        }
+    }
+
+
+    /*
+     * =========================
+     * APERÇU TEMPORAIRE
+     * =========================
+     */
+
     input.addEventListener("change", function () {
+
         const file = input.files[0];
 
         if (!file) return;
 
         const url = URL.createObjectURL(file);
+
 
         /* =========================
            VIDÉO
@@ -92,7 +156,8 @@ function setupUpload(inputId, previewId, isVideo = false) {
 
 setupUpload(
     "heroImage",
-    "heroPreview"
+    "heroPreview",
+    "images/hero.jpg"
 );
 
 
@@ -103,6 +168,7 @@ setupUpload(
 setupUpload(
     "processVideo",
     "videoPreview",
+    "videos/process.mp4",
     true
 );
 
@@ -117,11 +183,12 @@ for (let i = 1; i <= 10; i++) {
 
     setupUpload(
         "gallery" + number,
-        "galleryPreview" + number
+        "galleryPreview" + number,
+        "images/" + number + ".jpg"
     );
 }
 
 
 console.log(
-    "ART PROJECT — système média local chargé"
+    "ART PROJECT — système média chargé"
 );
