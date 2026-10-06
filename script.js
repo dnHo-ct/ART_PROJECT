@@ -157,7 +157,7 @@ function setupUpload(inputId, previewId, filePath = null, isVideo = false) {
 setupUpload(
     "heroImage",
     "heroPreview",
-    "images/hero.jpg"
+    "videos/images/hero.jpg"
 );
 
 
