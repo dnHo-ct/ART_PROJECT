@@ -184,8 +184,8 @@ for (let i = 1; i <= 10; i++) {
     setupUpload(
         "gallery" + number,
         "galleryPreview" + number,
-        "images/" + number + ".jpg"
-    );
+        "videos/images/" + number + ".jpg"
+        );
 }
 
 
